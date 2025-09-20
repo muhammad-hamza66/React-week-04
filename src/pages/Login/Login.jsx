@@ -43,7 +43,10 @@ function Login() {
     );
 
     if (foundUser) {
+      
       localStorage.setItem("currentUser", JSON.stringify(foundUser));
+      localStorage.setItem("authToken", "true");
+
       navigate("/Home");
     } else {
       setError("Invalid username or password");

@@ -1,13 +1,13 @@
-
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 
 const AppLayout = () => {
   const navigate = useNavigate();
+
   const handleLogout = () => {
-   
     localStorage.removeItem("authToken");
+    localStorage.removeItem("currentUser");
     navigate("/");
   };
 

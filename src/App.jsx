@@ -9,15 +9,21 @@ import AppLayout from "./Layout/Applayout";
 function App() {
   return (
     <Routes>
+     
       <Route element={<ProtectedRoutes />}>
         <Route element={<AppLayout />}>
           <Route path="/Home" element={<Home />} />
-          <Route path="/profile" element={<About />} />
+          <Route path="/About" element={<About />} />
         </Route>
       </Route>
 
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<div>Registration Page</div>} />
+
+      <Route element={<RedirectifAuth />}>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<div>Registration Page</div>} />
+      </Route>
+
+      
       <Route path="*" element={<div>Not found...</div>} />
     </Routes>
   );

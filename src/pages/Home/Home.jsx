@@ -4,14 +4,13 @@ const Home = () => {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
 
-  // Add new task
   const addTask = () => {
     if (task.trim() === "") return;
     setTodos([...todos, { id: Date.now(), text: task, completed: false }]);
     setTask("");
   };
 
-  // Toggle completed
+
   const toggleTask = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -20,7 +19,7 @@ const Home = () => {
     );
   };
 
-  // Delete task
+
   const deleteTask = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };

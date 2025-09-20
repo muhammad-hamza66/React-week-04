@@ -1,10 +1,9 @@
-import React, { use } from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoutes = () => {
+  const isAuthenticated = localStorage.getItem("authToken");
 
-  const user = localStorage.getItem("currentUser");
-  return user ? <Outlet /> : <Navigate to={"/"} />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoutes;

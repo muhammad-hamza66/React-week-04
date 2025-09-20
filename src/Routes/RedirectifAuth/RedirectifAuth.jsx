@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-const RedirectIfAuth = () => {
-  const user = localStorage.getItem("currentUser");
-  return user ? <Navigate to="/home" /> : <Outlet />;
+const RedirectifAuth = () => {
+  const isAuthenticated = localStorage.getItem("authToken");
+
+  return isAuthenticated ? <Navigate to="/Home" replace /> : <Outlet />;
 };
 
-export default RedirectIfAuth;
+export default RedirectifAuth;
